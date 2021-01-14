@@ -1,0 +1,25 @@
+#:import PagingLayout pages.common.views
+
+<PagingLayout>:
+    size_hint: 1, .1
+    #orientation: 'rl-tb'
+    MDLabel:
+        id: page_info_label
+        font_size: '12sp'
+        halign: 'right'
+        text: '1'
+        #theme_text_color: "Custom"
+        #text_color: app.theme_cls.primary_color
+    MDIconButton:
+        icon: "arrow-left-circle-outline"
+        pos_hint: {"center_y": .5}
+        on_release: root.on_prev_btn_click()
+        theme_text_color: "Custom"
+        text_color: app.theme_cls.primary_color
+    MDIconButton:
+        icon: "arrow-right-circle-outline"
+        pos_hint: {"center_y": .5}
+        on_release: root.on_next_btn_click()
+        theme_text_color: "Custom"
+        text_color: app.theme_cls.primary_color
+

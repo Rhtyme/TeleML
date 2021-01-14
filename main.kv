@@ -1,0 +1,34 @@
+#:import TeleMlMain main
+#:include pages/splash/splash.kv
+#:include pages/sign_in/sign_in_phone.kv
+#:include pages/sign_in/sign_in_code.kv
+#:include pages/dialogs/dialog_list.kv
+#:include pages/chat/chat.kv
+#:import constants pages.screen_names
+
+TeleMlMain:
+    orientation: "vertical"
+    id: tm
+
+    ScreenManager:
+        id: screen_manager
+
+        SplashScreen:
+            id: id_screen_splash
+            name: constants.SCREEN_SPLASH #"screen_splash"
+
+        SignInPhone:
+            id: id_screen_sign_in_phone
+            name: constants.SCREEN_SIGN_IN_PHONE #"screen_sign_in_phone"
+
+        SignInCode:
+            id: id_screen_sign_in_code
+            name: constants.SCREEN_SIGN_IN_CODE #"screen_sign_code"
+
+        DialogList:
+            id: id_screen_dialog_list
+            name: constants.SCREEN_DIALOGS #"screen_sign_code"
+
+        ChatScreen:
+            id: id_screen_chat
+            name: constants.SCREEN_CHAT #"screen_sign_code"

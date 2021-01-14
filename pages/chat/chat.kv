@@ -1,0 +1,23 @@
+#:import ChatScreen pages.chat.chat
+#:include pages/chat/views/views.kv
+#:include pages/common/views.kv
+
+<ChatScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_y: 1
+
+        MDToolbar:
+            id: toolbar_chat
+            pos_hint: {"top": 1}
+            elevation: 10
+            title: root.chat_title
+            #left_action_items: [["arrow-left", lambda x: root.on_back_pressed()]]
+
+        ChatRV:
+            id: rv_messages
+            size_hint_y: 1.0 - (toolbar_chat.height + paging_layout_chat.height)/root.height
+        PagingLayout:
+            id: paging_layout_chat
+            size_hint_y: .1
+

@@ -1,0 +1,121 @@
+#:import MessageItem pages.chat.views.views
+#:import ChatRV pages.chat.views.views
+
+<MessageItem>:
+    value_message_author: ''
+    value_message_text: ''
+    value_avatar: ''
+    value_message_sentiment_score: ''
+    value_message_date: ''
+    padding: (30, 15, 30, 15)
+    orientation: 'horizontal'
+    spacing: 10
+    size_hint_y: None
+#    height: 600
+    #height: user_name_label.height + msg_text_label.height + 30
+
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        size_hint_y: None
+        spacing: 10
+        canvas.before:
+            Color:
+                rgba: .176, .176, .176, .1
+
+            RoundedRectangle:
+#                angle_start: 20
+#                angle_end: 20
+#                pos: 0,0
+                pos: self.pos
+                size: self.size
+
+#            Rectangle:
+#                pos: self.pos
+#                size: self.size
+
+
+        MDLabel:
+            id: user_name_label
+            font_size: '12sp'
+            #size_hint: 1, .3
+            pos_hint: {'left': 0}
+            text: root.value_message_author
+            theme_text_color: "Custom"
+            text_color: 0, 0, 1, 1
+
+
+        BoxLayout:
+            id: user_name_label
+            #pos_hint: {'center_x': 0.5, 'center_y': .95}
+            #size_hint: 1, .7
+            pos_hint: {'left': 0}
+            orientation: 'vertical'
+            spacing: 5
+            canvas.before:
+                Color:
+                    rgba: 1, 0, 0, 0
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            MDLabel:
+                id: msg_text_label
+                pos_hint: {'center_x': 0.5, 'center_y': .55}
+                size_hint: 1, 1
+                text_size: None, dp(80)
+                markup: True
+                shorten: True
+                shorten_from: "right"
+                #ellipsis_options: {'color':(1,0.5,0.5,1),'underline':True}
+
+                #markup: True
+                #size: self.texture_size
+
+        #        size_hint_y: None
+        #        text_size: (self.width, None)
+        #        height: self.texture_size[1]
+                #size_hint: 1, .7
+                text: root.value_message_text
+                canvas.before:
+                    Color:
+                        rgba: 0, 1, 0, 0
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, None
+            pos_hint: {'left': 0}
+            height: 20.
+
+            MDLabel:
+                id: sentiment_label
+                font_size: '12sp'
+                size_hint: .7,  None
+                pos_hint: {'center_y': 0.55}
+                text: root.value_message_sentiment_score
+                theme_text_color: "Custom"
+                text_color: 1, 0, .5, 1
+
+            MDLabel:
+                id: time_label
+                halign: 'right'
+                font_size: '12sp'
+                pos_hint: {'center_y': 0.55}
+                size_hint: .3, None
+                text: root.value_message_date
+                theme_text_color: "Custom"
+                text_color: .2, .7, .4, 1
+
+
+<ChatRV>:
+    viewclass: 'MessageItem'
+    RecycleBoxLayout:
+        default_size: None, dp(56)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: 'vertical'

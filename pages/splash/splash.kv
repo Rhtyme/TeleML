@@ -1,0 +1,17 @@
+#:import SplashScreen pages.splash.splash
+
+<SplashScreen>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_y: .9
+        pos_hint_y: .1
+        spacing: 20
+        Image:
+            source: 'res/img/logo.png'
+            size: self.texture_size

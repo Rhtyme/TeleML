@@ -1,0 +1,32 @@
+#:import SignInPhone pages.sign_in.sign_in_phone
+
+<SignInPhone>:
+    phone: phone_input
+
+    StackLayout:
+        id: stack_id
+        orientation: "lr-tb"
+
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint_y: .5
+            spacing: 20
+
+            MDTextFieldRound:
+                id: phone_input
+                normal_color: [0, 0, 0, 0.2]
+                active_color: [0, 0, 0, 0.2]
+                icon_type: "left"
+                size_hint: .5, None
+                pos_hint: {"center_x": .5}
+                hint_text: "Enter your phone number"
+
+            MDRaisedButton:
+                text: "Get code"
+                #size_hint: .3, None
+                width: dp(200)
+                pos_hint: {"center_x": .5}
+                on_release: root.on_get_code_pressed()
+
+
