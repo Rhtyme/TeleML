@@ -1,0 +1,6 @@
+SCREEN_SIGN_IN_PHONE = "screen_sign_in_phone"
+SCREEN_SIGN_IN_CODE = "screen_sign_code"
+SCREEN_DIALOGS = "screen_dialogs"
+SCREEN_CHAT = "screen_chat"
+SCREEN_SPLASH = "screen_splash"
+BASE_MAIN_LAYOUT = "base_main_layout"

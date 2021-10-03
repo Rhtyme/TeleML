@@ -1,0 +1,22 @@
+#:import DialogList pages.dialogs.dialog_list
+#:include pages/dialogs/views/views.kv
+#:include pages/common/views.kv
+
+<DialogList>:
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_y: 1
+
+        MDToolbar:
+            id: toolbar
+            pos_hint: {"top": 1}
+            elevation: 10
+            title: "TeleML"
+            #left_action_items: [["menu", lambda x: print('on menu click')]]
+
+        RV:
+            id: dialogs_rv
+            size_hint_y: 1.0 - (toolbar.height + paging_layout_dialog.height)/root.height
+        PagingLayout:
+            id: paging_layout_dialog
+            size_hint_y: .1

@@ -1,0 +1,24 @@
+#:import TwoLineAvatarListItemImpl pages.dialogs.views.views
+#:import RV pages.dialogs.views.views
+
+<TwoLineAvatarListItemImpl>:
+    value_dialog_title: ''
+    value_dialog_msg: ''
+    value_dialog_id: 0
+    text: root.value_dialog_title
+    secondary_text: root.value_dialog_msg
+    #onRelease: root.onItemClick()
+    #onPress: root.onItemClick()
+    on_state: if self.state == 'normal': root.onItemClick(self.value_dialog_id, self.value_dialog_title)
+
+    ImageLeftWidget:
+        source: "res/img/avatar_abstract.png"
+
+<RV>:
+    viewclass: 'TwoLineAvatarListItemImpl'
+    RecycleBoxLayout:
+        default_size: None, dp(56)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: 'vertical'
